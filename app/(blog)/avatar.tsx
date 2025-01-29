@@ -5,21 +5,21 @@ import { urlForImage } from "@/sanity/lib/utils";
 
 interface Props {
   name: string;
-  picture: Exclude<Author["picture"], undefined> | null;
+  image: Exclude<Author["image"], undefined> | null;
 }
 
-export default function Avatar({ name, picture }: Props) {
+export default function Avatar({ name, image }: Props) {
   return (
     <div className="flex items-center text-xl">
-      {picture?.asset?._ref ? (
+      {image?.asset?._ref ? (
         <div className="mr-4 h-12 w-12">
           <Image
-            alt={picture?.alt || ""}
+            alt={""}
             className="h-full rounded-full object-cover"
             height={48}
             width={48}
             src={
-              urlForImage(picture)
+              urlForImage(image)
                 ?.height(96)
                 .width(96)
                 .fit("crop")
